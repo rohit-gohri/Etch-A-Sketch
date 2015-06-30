@@ -19,12 +19,12 @@
 	border-radius:6px;
 	border:1px solid #dcdcdc;
 	display:inline-block;
-	width: 19.6%;
+	width: 19.5%;
 	height: 100%;
 	cursor:pointer;
 	color:#575757;
 	font-family:Arial;
-	font-size:15px;
+	font-size:x-smaller;
 	font-weight:bold;
 	padding:6px 24px;
 	text-decoration:none;
@@ -48,7 +48,7 @@
 }
 .box {
 	margin:0px;
-	background-color: grey;
+	background-color: LightGray;
 	display: inline-block;
 	border-style: solid;
 	border-color: white;
