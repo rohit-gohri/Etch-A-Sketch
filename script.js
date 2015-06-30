@@ -17,9 +17,9 @@ $(document).ready( function() {
 	}
 	generate(n);
 	$('#reset').click(function() {
-		var m = prompt("Tell the size of one side of the grid");
+		n = prompt("Tell the size of one side of the grid", "16");
 		$('#container').empty();
-		generate(m);
+		generate(n);
 		mode = 'normal';
 		$('.box').hover(mouseIn, mouseOut);
 	});
@@ -31,6 +31,8 @@ $(document).ready( function() {
 	});
 	$('#opac').click(function() {
 		$('.box').css("background-color","LightGray");
+		$('#container').empty();
+		generate(n);
 		mode = 'opac';
 		$('.box').hover(mouseIn, mouseOut);
 	});
@@ -51,11 +53,12 @@ $(document).ready( function() {
 		}
 		if(mode == 'opac') {
 			var prc = $(this).data("per");
-			var col = shadeColor(clr,prc);
-			$(this).css("background-color", col);
-			if(prc>-1) 
-				prc += -0.1;
-			$(this).data("per", prc);
+			if (prc >= -1) {
+				var col = shadeColor(clr,prc);
+				$(this).css("background-color", col);
+			}
+			prc += -0.1;
+			$(this).data('per', prc);
 		}
 		if(mode == 'random') {
 			if ($(this).data("custom") == "no") {
@@ -70,7 +73,7 @@ $(document).ready( function() {
 	}
 	function mouseOut() {
 		if(mode == 'trail') {
-			$(this).animate( { backgroundColor: 'grey' }, 'slow');
+			$(this).animate( { 'background-color': "#D3D3D3" }, 3000);
 		}
 	}
 	$('.box').hover(mouseIn, mouseOut);
