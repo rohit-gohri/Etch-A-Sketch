@@ -1,7 +1,6 @@
 $(document).ready( function() {
-	var n = 16;
+	var n = 16, mode = 'normal';
 	$('#container').height($('#container').width() + 'px');
-
 	function generate(n) {
 		for (var i = n; i > 0; i--) {
 			for (var j = n; j > 0; j--) {
@@ -21,4 +20,24 @@ $(document).ready( function() {
 		$('#container').empty();
 		generate(m);
 	})
+
+	function mouseIn(mode) {
+		if(mode == 'normal' || mode == 'trail') {
+			$(this).css("background-color", "black");
+		}
+		if(mode == 'random') {
+			var r =Math.floor((Math.random()*256));
+			var g =Math.floor((Math.random()*256));
+			var b =Math.floor((Math.random()*256));
+			var c = 'rgb('+r+','+g+','+b+')'; 
+			$(this).css("background-color", c);
+		}
+
+	}
+	function mouseOut(mode) {
+		if(mode == 'trail') {
+			$(this).animate( { backgroundColor: grey }, 500);
+		}
+	}
+	$('.box').on("mouseenter", mouseIn(mode));
 });

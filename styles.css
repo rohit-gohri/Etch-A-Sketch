@@ -48,9 +48,9 @@
 }
 .box {
 	margin:0px;
-	background-color: white;
+	background-color: grey;
 	display: inline-block;
 	border-style: solid;
-	border-color: black;
+	border-color: white;
 	border-width: 1px;
 }
