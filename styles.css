@@ -37,6 +37,20 @@
 	position:relative;
 	top:1px;
 }	
+p {
+	font-family: Arial;
+	position: absolute;
+	top:7%;
+	left: 50%;
+	font-size: small;
+	font-weight: bold;
+	color: grey;
+	text-shadow:0px 1px 0px #ffffff;
+	display: inline-block;
+	width:150px;
+	margin-left:-75px;
+	text-align: center; 
+}
 #container {
 	padding: 0px;
 	font-size: 0px;

@@ -16,17 +16,22 @@ $(document).ready( function() {
 		$('.box').css("box-sizing","border-box");
 	}
 	generate(n);
+	$('body').append("<p>Mode: Normal</p>");
 	$('#reset').click(function() {
 		n = prompt("Tell the size of one side of the grid", "16");
 		$('#container').empty();
 		generate(n);
 		mode = 'normal';
+		$('p').remove();
+		$('body').append("<p>Mode: Normal</p>");
 		$('.box').hover(mouseIn, mouseOut);
 	});
 	$('#random').click(function() {
 		$('.box').css("background-color","LightGray");
 		$('.box').data("custom", "no");
 		mode = 'random';
+		$('p').remove();
+		$('body').append("<p>Mode: Random</p>");
 		$('.box').hover(mouseIn, mouseOut);
 	});
 	$('#opac').click(function() {
@@ -34,11 +39,15 @@ $(document).ready( function() {
 		$('#container').empty();
 		generate(n);
 		mode = 'opac';
+		$('p').remove();
+		$('body').append("<p>Mode: Opacity</p>");
 		$('.box').hover(mouseIn, mouseOut);
 	});
 	$('#trail').click(function() {
 		$('.box').css("background-color","LightGray");
 		mode = 'trail';
+		$('p').remove();
+		$('body').append("<p>Mode: Trail</p>");
 		$('.box').hover(mouseIn, mouseOut);
 	});
 
@@ -51,7 +60,7 @@ $(document).ready( function() {
 		if(mode == 'normal' || mode == 'trail') {
 			$(this).css("background-color", "black");
 		}
-		if(mode == 'opac') {
+		else if(mode == 'opac') {
 			var prc = $(this).data("per");
 			if (prc >= -1) {
 				var col = shadeColor(clr,prc);
@@ -60,7 +69,7 @@ $(document).ready( function() {
 			prc += -0.1;
 			$(this).data('per', prc);
 		}
-		if(mode == 'random') {
+		else if (mode == 'random') {
 			if ($(this).data("custom") == "no") {
 				$(this).data("custom", "yes");
 				var r =Math.floor((Math.random()*256));
@@ -73,7 +82,8 @@ $(document).ready( function() {
 	}
 	function mouseOut() {
 		if(mode == 'trail') {
-			$(this).animate( { 'background-color': "#D3D3D3" }, 3000);
+			console.log('test');
+			$(this).stop().animate({ backgroundColor: "#D3D3D3" }, 300);
 		}
 	}
 	$('.box').hover(mouseIn, mouseOut);
