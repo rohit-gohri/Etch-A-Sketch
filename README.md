@@ -1,2 +1,2 @@
 # Etch-A-Sketch
-The Odin Project : http://www.theodinproject.com/web-development-101/javascript-and-jquery
+From The Odin Project : https://www.theodinproject.com/courses/web-development-101/lessons/etch-a-sketch-project
